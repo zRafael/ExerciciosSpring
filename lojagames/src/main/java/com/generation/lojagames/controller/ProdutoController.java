@@ -1,6 +1,9 @@
 package com.generation.lojagames.controller;
 
 import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,7 +44,7 @@ public class ProdutoController {
 	}
 
 	@PostMapping
-	public ResponseEntity<Produto> post(@RequestBody Produto produto) {
+	public ResponseEntity<Produto> post(@Valid @RequestBody Produto produto) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
 	}
 
